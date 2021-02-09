@@ -1,0 +1,244 @@
+:root {
+    --yellow: #efad02;
+    --black1: #02141e;
+}
+
+body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--black1);
+    color: #fdfdfd;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+nav {
+    padding: 10px 60px 20px 60px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.yellowText {
+    color: var(--yellow);
+}
+
+#newGameOptions {
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    padding: 20px 60px;
+    height: 600px;
+    width: 500px;
+    color: var(--black1);
+    background-image: radial-gradient(
+        circle farthest-corner at 18.7% 37.8%,
+        rgba(250, 250, 250, 1) 0%,
+        rgba(225, 234, 238, 1) 90%
+    );
+}
+
+#newGameOptions h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+    color: var(--black1);
+}
+
+#newGameOptions > * {
+    margin-bottom: 10px;
+    display: block;
+}
+
+#newGameOptions input {
+    box-sizing: border-box;
+    font-size: 15px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+input:required {
+    box-shadow: none;
+}
+
+#newGameOptions button {
+    box-sizing: border-box;
+    margin: 80px auto;
+    width: 80%;
+    color: gainsboro;
+    font-weight: bolder;
+    border: 0;
+    background-color: #133371;
+    box-shadow: 0 5px 0 #0e2553;
+    border-radius: 20px;
+    font-size: 20px;
+    height: 60px;
+}
+
+#newGameOptions button:active {
+    transform: translate(0, 3px);
+    box-shadow: 0 2px 0 #0e2553;
+}
+
+#playerNames {
+    width: 400px;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align-last: justify;
+}
+
+#playerNames span {
+    display: inline-block;
+    text-align: left;
+    text-align-last: left;
+    background-color: #16a08462;
+    border-radius: 10px;
+    padding: 15px 30px;
+    box-shadow: 0 5px 10px #02111a;
+    transition: 200ms all ease-in-out;
+    font-weight: lighter;
+}
+
+#playerNames span.playerPlays {
+    background-color: #16a084;
+}
+
+#gameboard {
+    margin: 80px auto 40px auto;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: 33.333% 33.333% 33.333%;
+    grid-template-columns: 33.333% 33.333% 33.333%;
+    grid-template-areas:
+        "c00 c01 c02"
+        "c10 c11 c12"
+        "c20 c21 c22";
+}
+
+.cell {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
+    color: rgb(212, 212, 212);
+    background-color: var(--black1);
+    border: 2px solid gainsboro;
+    transition: 200ms all ease-in-out;
+}
+
+.cell:hover {
+    filter: brightness(1.5);
+}
+
+#c00 {
+    border-width: 0 2px 2px 0;
+}
+
+#c01 {
+    border-width: 0 2px 2px 2px;
+}
+
+#c02 {
+    border-width: 0 0 2px 2px;
+}
+
+#c10 {
+    border-width: 2px 2px 2px 0;
+}
+
+#c11 {
+    border-width: 2px 2px 2px 2px;
+}
+
+#c12 {
+    border-width: 2px 0 2px 2px;
+}
+
+#c20 {
+    border-width: 2px 2px 0 0;
+}
+
+#c21 {
+    border-width: 2px 2px 0 2px;
+}
+
+#c22 {
+    border-width: 2px 0 0 2px;
+}
+
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#buttonContainer button {
+    font-weight: bold;
+    background-color: var(--black1);
+    color: gainsboro;
+    border-color: var(--yellow);
+    border-radius: 50px;
+    margin: 0 20px;
+    font-size: 15px;
+    padding: 10px 20px;
+    transition: 250ms all ease-in-out;
+}
+
+#buttonContainer button:hover {
+    background-color: #efac02c4;
+    color: gainsboro;
+}
+
+#gameMessage {
+    font-size: 35px;
+    font-weight: bold;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+    background-image: linear-gradient(
+        109.6deg,
+        rgba(255, 207, 84, 1) 11.2%,
+        rgba(255, 158, 27, 1) 91.1%
+    );
+    animation: popUp 2s ease-in-out normal forwards;
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.95;
+    }
+    70% {
+        opacity: 0.95;
+    }
+    100% {
+        opacity: 0;
+    }
+}
